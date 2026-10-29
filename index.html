@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Prakhresh 🎂</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background: linear-gradient(135deg, #16002e, #65158a, #e83e8c);
+  overflow-x: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  padding: 35px 22px;
+  border: 1px solid #ffffff55;
+  border-radius: 25px;
+  background: #ffffff18;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 50px #0004;
+}
+
+.cake {
+  font-size: 75px;
+  animation: bounce 1.5s infinite;
+}
+
+h1 { font-size: 30px; }
+h2 { color: #ffd6ef; }
+
+p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 14px 24px;
+  margin-top: 18px;
+  background: #ffcae5;
+  color: #58104d;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#surprise {
+  display: none;
+  margin-top: 22px;
+  animation: appear 1s ease;
+}
+
+@keyframes bounce {
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.confetti {
+  position: fixed;
+  top: -30px;
+  pointer-events: none;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="card">
+  <div class="cake">🎂</div>
+
+  <h1>Happy Birthday!</h1>
+  <h2>Prakhresh ❤️</h2>
+
+  <p>
+    Aaj ka din tumhare liye dher saari
+    khushiyan lekar aaye! 🎉
+  </p>
+
+  <p>
+    Bhagwan tumhe hamesha khush rakhe,
+    sehat de aur life mein khoob safalta de.
+    Tumhare saare sapne poore hon! ✨
+  </p>
+
+  <button onclick="openSurprise()">
+    🎁 Open Your Surprise
+  </button>
+
+  <div id="surprise">
+    <div style="font-size:55px">🥳🎉🎂</div>
+    <h2>Surprise! ❤️</h2>
+    <p>
+      Wishing you a year full of happiness,
+      success, laughter and unforgettable
+      moments!
+    </p>
+    <h2>Happy Birthday, Prakhresh! 🎈</h2>
+  </div>
+</div>
+
+<script>
+function openSurprise() {
+  const surprise = document.getElementById("surprise");
+  surprise.style.display = "block";
+
+  for (let i = 0; i < 80; i++) {
+    const piece = document.createElement("div");
+    piece.className = "confetti";
+    piece.textContent = ["🎉", "✨", "💖", "🎊", "⭐"][
+      Math.floor(Math.random() * 5)
+    ];
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.fontSize = (15 + Math.random() * 18) + "px";
+    piece.style.animationDuration = (2 + Math.random() * 3) + "s";
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 5000);
+  }
+}
+</script>
+</body>
+</html>
